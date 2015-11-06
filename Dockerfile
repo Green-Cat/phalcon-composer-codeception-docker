@@ -11,7 +11,7 @@ RUN apt-get install -y -q -f php5-dev php5-mcrypt php5-curl php5-mongo php5-json
 ENV COMPOSER_HOME /root/composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-RUN composer global require "codeception/codeception:*"
+RUN /usr/local/bin/composer global require "codeception/codeception:*"
 
 RUN git clone --depth=1 git://github.com/phalcon/cphalcon.git /usr/local/src/cphalcon
 RUN cd /usr/local/src/cphalcon/build && ./install ;\
