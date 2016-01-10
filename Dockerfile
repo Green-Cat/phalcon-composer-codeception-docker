@@ -6,13 +6,13 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update -q
 RUN apt-get upgrade -y -q
 
-RUN apt-get install -y -q -f php5-dev php5-mcrypt php5-curl php5-mongo php5-json php5-memcached php5-xdebug php5-gd php5-geoip libtool git libpcre3-dev curl
+RUN apt-get install -y -q -f php5-dev php5-mcrypt php5-curl php5-mysql php5-mongo php5-json php5-memcached php5-xdebug php5-gd php5-geoip libtool git libpcre3-dev curl
 
 ENV COMPOSER_HOME /root/composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-RUN export PATH=$COMPOSER_HOME/vendor/bin:$PATH
 
-RUN /usr/local/bin/composer global require "codeception/codeception:*"
+ADD http://codeception.com/codecept.phar /usr/local/bin/codecept
+RUN chmod +x /usr/local/bin/codecept
 
 RUN git clone --depth=1 git://github.com/phalcon/cphalcon.git /usr/local/src/cphalcon
 RUN cd /usr/local/src/cphalcon/build && ./install ;\
