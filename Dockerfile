@@ -10,7 +10,7 @@ RUN apt-get install -y -q -f php5-dev php5-mcrypt php5-curl php5-mongo php5-json
 
 ENV COMPOSER_HOME /root/composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-RUN export PATH=~/.composer/vendor/bin:$PATH
+RUN export PATH=$COMPOSER_HOME/vendor/bin:$PATH
 
 RUN /usr/local/bin/composer global require "codeception/codeception:*"
 
