@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update -q
 RUN apt-get upgrade -y -q
 
-RUN apt-get install -y -q -f php5-dev php5-mcrypt php5-curl php5-mongo php5-json php5-memcached php5-xdebug php5-gd php5-geoip libtool git libpcre3-dev curl wget
+RUN apt-get install -y -q -f php5-dev php5-mcrypt php5-mbstring php5-curl php5-mongo php5-json php5-memcached php5-xdebug php5-gd php5-geoip libtool git libpcre3-dev curl
 
 ENV COMPOSER_HOME /root/composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
