@@ -4,10 +4,10 @@ MAINTAINER Vladimir Metelitsa <me@greencat.io>
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update -q
+RUN apt-get upgrade -y -q
 RUN apt-get install -y -q -f software-properties-common
 RUN add-apt-repository ppa:ondrej/php5-5.6
 RUN apt-get update -q
-RUN apt-get upgrade -y -q
 
 RUN apt-get install -y -q -f php5 php5-dev php5-mcrypt php5-curl php5-mysql php5-mongo php5-json php5-memcached php5-xdebug php5-gd php5-geoip libtool git libpcre3-dev curl
 
